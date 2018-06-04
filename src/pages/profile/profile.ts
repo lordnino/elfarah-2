@@ -4,6 +4,7 @@ import { VendorsProvider } from './../../providers/vendors/vendors';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
@@ -159,6 +160,7 @@ export class ProfilePage {
   }
 
   getImage() {
+    const fileTransfer: FileTransferObject = this.transfer.create();
     const options: CameraOptions = {
       quality: 100,
       sourceType: 0,
@@ -167,24 +169,45 @@ export class ProfilePage {
     }
     this.camera.getPicture(options).then((imageData) => {
       this.imageUploaded = true;
-      // this.imageURI = imageData;
       this.imageFileName = imageData;
-      let imageBase64;
-      this.base64.encodeFile(imageData).then((base64File: string) => {
-        imageBase64 = base64File;
-      })
-      let loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      loading.present();
-      this.vendorsProvider.uplaodVendorImage(imageBase64).subscribe((res: any) => {
-        res.forEach(e => {
-          e.web_path = 'http://elfarahapp.com' + e.web_path
+      // let imageBase64;
+      // this.base64.encodeFile(imageData).then((base64File: string) => {
+      //   imageBase64 = base64File;
+      // })
+      let fileOptions: FileUploadOptions = {
+        fileKey: 'upload[]',
+        httpMethod: 'post',
+        headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*' },
+        params: {
+          'custom': 'true',
+          'action': 'upload_vendor_images',
+          'token': window.localStorage.getItem('token'),
+        }
+      }
+      fileTransfer.upload(imageData, 'http://elfarahapp-com.stackstaging.com/Application/rest/get.php', fileOptions)
+        .then((res: any) => {
+          console.log('uploaded image successfully!!!');
+          console.log(res);
+          res.forEach(e => {
+            e.web_path = 'http://elfarahapp.com' + e.web_path
+          })
+          this.vendorImages = res;
+          this.getVendorImages();
+        }, (err) => {
+          console.log(err);
         })
-        this.vendorImages = res;
-        this.getVendorImages();
-      }, err => console.log(err)
-        , () => loading.dismiss());
+      // let loading = this.loadingCtrl.create({
+      //   content: 'Please wait...'
+      // });
+      // loading.present();
+      // this.vendorsProvider.uplaodVendorImage(imageBase64).subscribe((res: any) => {
+      //   res.forEach(e => {
+      //     e.web_path = 'http://elfarahapp.com' + e.web_path
+      //   })
+      //   this.vendorImages = res;
+      //   this.getVendorImages();
+      // }, err => console.log(err)
+      //   , () => loading.dismiss());
     }, (err) => {
       console.log(err);
       this.presentToast(err);
@@ -240,35 +263,50 @@ export class ProfilePage {
   }
 
   uploadUserPic() {
+    const fileTransfer: FileTransferObject = this.transfer.create();
     const options: CameraOptions = {
       quality: 100,
       sourceType: 0,
       destinationType: this.camera.DestinationType.FILE_URI,
       // sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
+    let fileOptions: FileUploadOptions = {
+      fileKey: 'base64File',
+      httpMethod: 'post',
+      chunkedMode: false,
+      headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*' },
+      params: {
+        'custom': 'true',
+        'action': 'upload_package_image',
+        'token': window.localStorage.getItem('token'),
+      }
+    }
     this.camera.getPicture(options).then((imageData) => {
       let imageBase64;
       this.imageFileName = imageData;
       this.userImage = imageData;
-      let payload: any;
-      this.base64.encodeFile(imageData).then((base64File: string) => {
-        imageBase64 = base64File;
-        payload = {
-          "custom": "true",
-          "token": window.localStorage.getItem('token'),
-          "action": "upload_package_image",
-          "upload": base64File
-        }
-      })
-      let loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      loading.present();
-      this.userProvider.uploadProfilePic(payload).subscribe((res: any) => {
-        this.userImage = `http://elfarahapp.com${res.data[0].web_path}`;
-        this.getUserData();
-      }, err => console.log(err)
-        , () => loading.dismiss());
+      fileTransfer.upload(imageData, 'http://elfarahapp-com.stackstaging.com/Application/rest/get.php', fileOptions)
+        .then((res: any) => {
+          console.log('uploaded image successfully!!!');
+          console.log(res);
+        }, (err) => {
+          console.log(err);
+        })
+      // let payload: any;
+      // this.base64.encodeFile(imageData).then((base64File: string) => {
+      //   imageBase64 = base64File;
+      //   payload = {
+      //     "custom": "true",
+      //     "token": window.localStorage.getItem('token'),
+      //     "action": "upload_package_image",
+      //     "upload": base64File
+      //   }
+      // })
+      // this.userProvider.uploadProfilePic(payload).subscribe((res: any) => {
+      //   this.userImage = `http://elfarahapp.com${res.data[0].web_path}`;
+      //   this.getUserData();
+      // }, err => console.log(err)
+      //   , () => loading.dismiss());
     }, (err) => {
       console.log(err);
       this.presentToast(err);
