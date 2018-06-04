@@ -1,0 +1,118 @@
+page-profile {
+  ion-content {
+    .slider-top-container {
+      height: 25%;
+    }
+    .heading-name {
+      background-image: url('../assets/imgs/profile/sub-bg.png');
+      height: 20%;
+      .col {
+        padding: 0px;
+      }
+    }
+    .name,
+    .address {
+      color: #fff;
+    }
+    .name {
+      font-size: 1.8em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    .address {
+      font-size: 1.4em;
+    }
+    ion-segment {
+      margin-top: 27px;
+    }
+    // .segment-ios-primary .segment-button {
+    //   border: none;
+    // }
+    // .segment-ios-primary .segment-button.segment-activated {
+    //   color: #f06886;
+    //   background-color: transparent;
+    //   border-bottom: 5px solid #f06886;
+    // }
+    // .segment-ios-primary .segment-button {
+    //   color: #514f4f;
+    //   font-family: "MontExtraBold"
+    // }
+  }
+  .inputs-bottom {
+    height: 55%;
+    overflow: auto;
+    background-image: url('../assets/imgs/profile/bg.png');
+  }
+  .inputs-container {}
+  .item-ios {
+    background-color: transparent;
+  }
+  .label-ios-primary,
+  .item-input .label-ios-primary,
+  .item-select .label-ios-primary,
+  .item-datetime .label-ios-primary {
+    color: #bfbfbf;
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+  }
+  .item-input ion-input,
+  .item-input ion-textarea {
+    border: 3px solid #fff;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: none;
+  }
+  .item-ios.item-label-stacked .text-input::placeholder,
+  .item-ios.item-label-floating .text-input::placeholder {
+    padding-left: 10px;
+    color: #fff;
+  }
+  .item-ios.item-label-stacked .text-input,
+  .item-ios.item-label-floating .text-input {
+    background-color: #464646;
+    margin: 0px;
+    min-height: 40px;
+    color: #fff;
+    padding-left: 16px;
+  }
+  textarea.text-input.text-input-ios {
+    padding-top: 10px;
+  }
+  .item-input ion-input,
+  .item-input ion-textarea {
+    background-color: #464646;
+  }
+  .item-ios .item-button {
+    height: 45px;
+    font-size: 1.8rem;
+  }
+  .textarea.text-input.text-input-ios {
+    padding-top: 7px;
+  }
+  .user-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-image: url('../assets/imgs/profile/sub-bg.png');
+    height: 100%;
+    span {
+      background: transparent;
+      position: relative;
+      .user-img {
+        width: 75px;
+        border-radius: 50%;
+      }
+      .edit-icon {
+        position: absolute;
+        top: 50px;
+        right: -14px;
+      }
+    }
+  }
+  .swiper-slide img{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+  }
+}

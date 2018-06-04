@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+    <ion-buttons end>
+      <div class="button-containers">
+        <div (click)="toggleSearch()">
+          <ion-icon class="filter-icon" name="md-search"></ion-icon>
+        </div>
+        <div (click)="goToFilterPage()">
+          <ion-icon class="filter-icon" name="ios-funnel-outline"></ion-icon>
+        </div>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col col-12>
+      <ion-searchbar *ngIf="showSearch" [(ngModel)]="searchText" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"
+        (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="cat_details && cat_details.length > 0" no-padding>
+    <ion-col *ngFor="let cat of cat_details" (click)="goToCategoryVendor()" col-12 no-padding>
+      <div class="cat-outer-container">
+        <img [src]="cat.web_path" class="cat-img" alt="">
+        <div class="cat-inner-container">
+          <p class="cat-title mont-regular">{{cat.vendor_name}}</p>
+          <div class="rating-container">
+            <rating [(ngModel)]="cat.vendor_rate" readOnly="true" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+              nullable="false"></rating>
+            <span class="rating-price">{{cat.vendor_rate}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="cat_details && cat_details.length == 0" no-padding>
+    <ion-col margin-top text-center col-12 no-padding>
+      <h3 class="no-vendors">There are no vendors in this categories</h3>
+    </ion-col>
+  </ion-row>
+</ion-content>

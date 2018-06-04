@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item margin-bottom>
+    <ion-row>
+      <ion-col (click)="cancel()" text-center col-4>
+        Cancel
+      </ion-col>
+      <ion-col (click)="filter()" text-center col-4>
+        Filter
+      </ion-col>
+      <ion-col (click)="reset()" text-center col-4>
+        Reset
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <form [formGroup]="form">
+    <ion-label>
+      <ion-row margin-bottom no-padding>
+        <ion-col col-6 no-padding>
+          <ion-item>
+            <ion-label>Country</ion-label>
+            <ion-select formControlName="country">
+              <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 no-padding>
+          <ion-item>
+            <ion-label>City</ion-label>
+            <ion-select formControlName="city">
+              <ion-option *ngFor="let city of cities" [value]="city.id">{{city.Name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <ion-label class="price" ion-text text-left>Price Range</ion-label>
+        <ion-range dualKnobs="true" formControlName="price_range" min="0" max="20000" step="100" snaps="false"></ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-row no-padding>
+          <ion-col col-6 no-padding>
+            <span class="min">Min : {{form.get('price_range').value.lower}}</span>
+          </ion-col>
+          <ion-col col-6 text-right no-padding>
+            <span class="max">Max : {{form.get('price_range').value.upper}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-row no-padding>
+          <ion-col col-12>
+            <h2 class="mont-light rating-title">Minimal recommendation rate</h2>
+            <div class="rating-container">
+              <rating formControlName="rating" readOnly="false" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+                nullable="false"></rating>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-label>
+  </form>
+</ion-content>

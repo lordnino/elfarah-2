@@ -1,0 +1,25 @@
+<ion-content padding>
+  <ion-row class="logo-margin-top">
+    <ion-col text-center>
+      <img src="assets/imgs/logo1.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col text-center>
+      <img src="assets/imgs/intro-wedding-plan.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="bottom-container">
+    <ion-col (click)="goToLogin()" xol-6 text-center>
+      <img src="assets/imgs/intro-login.png" alt="">
+    </ion-col>
+    <ion-col (click)="goToSignUp()" col-6 text-center>
+      <img src="assets/imgs/intro-sign-up.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="skip-this-text">
+    <ion-col (click)="loginAsAGuest()" col-12 text-center>
+      <img src="assets/imgs/intro-skip-this-step.png" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>

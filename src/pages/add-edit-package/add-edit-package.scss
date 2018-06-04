@@ -1,0 +1,31 @@
+page-add-edit-package {
+  .label{
+    color: #666;
+  }
+  .pack-img{
+    height: 170px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .title-container{
+    background-color: #edf8ff;
+    // margin-right: 10px;
+    // margin-left: 10px;
+    h3{
+      margin-top: 7px;
+      margin-bottom: 5px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    p{
+      margin-bottom: 5px;
+      margin-top: 0px;
+      color: #666;
+      margin-left: 5px;
+    }
+  }
+  .title-outer-container{
+    margin: 0 10px;
+    border-radius: 5px;
+  }
+}

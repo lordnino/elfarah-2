@@ -1,15 +1,27 @@
-<ion-menu [content]="content">
-  <ion-header>
+<ion-menu [content]="content" class="bg-image" type="overlay">
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+    <ion-list class="menu-list">
+      <ion-row>
+        <ion-col coll-12 text-center>
+          <img class="user-profile" [src]="userImage" >
+        </ion-col>
+        <ion-col col-12 text-center>
+          <h4 class="mont-light">{{userProfile?.name}}</h4>
+          <h6 *ngIf="userType != 'guest'" class="mont-light" (click)="goToProfile()">view profile</h6>
+        </ion-col>
+      </ion-row>
+
+      <span menuClose class="mont-light menu-link" ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
-      </button>
+      </span>
+      <span *ngIf="userType != 'guest'" menuClost class="mont-extra-bold menu-link" ion-item (click)="logout()">Logout</span>
+      <img src="assets/imgs/logo1.png" class="menu-bottom-logo" alt="">
     </ion-list>
   </ion-content>
 

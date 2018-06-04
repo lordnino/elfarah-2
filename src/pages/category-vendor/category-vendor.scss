@@ -1,0 +1,221 @@
+page-category-vendor {
+  .ad-container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .ad-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  /* Top left text */
+  .top-left {
+    position: absolute;
+    bottom: 0px;
+    left: 16px;
+  }
+  /* Top right text */
+  .top-right {
+    position: absolute;
+    bottom: 7px;
+    right: 16px;
+  }
+  .featured-text {
+    // width: 150px;
+  }
+  .featured-img {
+    // width: 25px;
+  }
+  .top-slider-container {
+    // height: 25%;
+  }
+  ion-slides {
+    height: 300px;
+  }
+  .number-of-followers {
+    position: absolute;
+    display: inline-block;
+    bottom: 15x;
+    bottom: 19px;
+    right: 42px;
+    padding: 5px 38px;
+    border-radius: 25px;
+  }
+  .followed{
+    background: #46c3fd;
+  }
+  .un-followed{
+    background: #fff;
+    color: #000;
+  }
+  .vendor-name-container {
+    border-bottom: 1px solid #666;
+    h3 {
+      margin-left: 10px;
+      font-size: 2.4em;
+      color: #333;
+    }
+  }
+  ul {
+    padding: 0px;
+    margin-top: 5px;
+    &.rating li {
+      padding: 5px 10px !important;
+      padding: 0px !important;
+      background: none;
+      color: #ef587b;
+      ion-icon {
+        font-size: 1.2em;
+      }
+    }
+  }
+  .rating-container {
+    display: flex;
+    align-items: baseline;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .rating-price {
+    display: inline-block;
+    color: #333;
+    margin-left: 10px;
+  }
+  .price-range-container {
+    display: flex;
+    align-items: baseline;
+    padding-top: 15px;
+    padding-left: 40px;
+    color: #333;
+    .price-range {
+      margin-right: 15px;
+      font-size: 1.2em;
+      color: #333;
+    }
+    .price-range-amount {
+      font-size: 1.2em;
+    }
+  }
+  .about-us-container {
+    margin-left: 10px;
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: #46444d;
+    }
+    p {
+      font-size: 1.4em;
+      margin-left: 15px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+      color: #7c8693;
+    }
+  }
+  .reviews-container {
+    margin-left: 10px;
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 0px;
+      color: #46444d;
+    }
+  }
+  .reviews-rating-container {
+    display: flex;
+    justify-content: center;
+    ul {
+      padding: 0px;
+      margin-top: 5px;
+      &.rating li {
+        padding: 5px 10px !important;
+        padding: 0px !important;
+        background: none;
+        color: #ef587b;
+        ion-icon {
+          font-size: 2.5em;
+        }
+      }
+    }
+  }
+  .packages-container {
+    margin-left: 10px;
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 0px;
+      color: #46444d;
+    }
+    .img-container {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    /* Bottom right text */
+    .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+    }
+    /* Bottom left text */
+    .bottom-left {
+      position: absolute;
+      bottom: 7px;
+      left: 0px;
+      right: 0px;
+      text-align: left;
+      background: rgba(0, 0, 0, .6);
+      height: 45px;
+      padding-left: 7px;
+    }
+    .bottom-all {
+      position: absolute;
+      bottom: 0px;
+      height: 30px;
+      left: 0px;
+      background: #000;
+      opacity: .7;
+    }
+    .package-image {
+      width: 100%;
+      height: 170px;
+    }
+    .package-name {
+      font-size: 2em;
+    }
+    .price-amount {
+      font-size: 2.6em;
+    }
+    .currency {
+      color: orangered;
+      font-size: 1.2em !important;
+    }
+    .pacakge-bullet {
+      margin-top: 0px;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+      color: #333;
+    }
+    .pacakge-action {
+      background: linear-gradient(to left, #2b2e35, #939497);
+      padding: 10px 0px;
+      color: #fff;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  }
+  .package-outer-container {
+    padding: 5px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    width: calc(100% - 24px);
+    font-size: 1.4rem;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .package-action {
+    background: linear-gradient(to left, #2b2e35, #939497);
+    padding: 10px 0px;
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+}

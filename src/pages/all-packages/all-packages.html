@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row no-padding>
+    <ion-col class="packages-container" col-12>
+      <ion-row class="package-outer-container" no-padding *ngFor="let package of packages; let index = index">
+        <ion-col class="img-container" col-12 no-padding>
+          <img [src]="package?.pack_image" class="package-image" alt="">
+          <span class="bottom-all"></span>
+          <span class="mont-light bottom-left package-name">{{package.pack_name}}</span>
+          <span class="mont-light bottom-right price">
+            <span class="price-amount">{{package.pack_price}}</span>
+            <span class="currency">&nbsp;EGP</span>
+          </span>
+        </ion-col>
+        <ion-col col-12 class="package-details" padding>
+          <p class="mont-light pacakge-bullet">{{package.pack_desc}}</p>
+        </ion-col>
+        <ion-col (click)="requestPackage(package)" col-12 no-padding text-center class="pacakge-action mont-light">
+          Request
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

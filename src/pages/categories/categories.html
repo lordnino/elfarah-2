@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+    <ion-buttons end>
+      <div (click)="toggleSearch()">
+        <ion-icon class="filter-icon" name="md-search"></ion-icon>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-row class="top-slider-container" no-padding>
+    <ion-col *ngIf="sliderImgs" no-padding>
+      <ion-slides pager="true" paginationType="bullets">
+        <ion-slide *ngFor="let img of sliderImgs">
+          <div class="ad-container">
+            <!-- <img src="http://via.placeholder.com/350x150" class="ad-img" alt=""> -->
+            <img [src]="img.web_path" class="ad-img" alt="">
+            <!-- <img src="assets/imgs/categories/feature-ads.png" class="top-left featured-text" alt=""> -->
+            <span class="top-left featured-ads-text">Featured Ads</span>
+            <img src="assets/imgs/categories/featured.png" class="top-right featured-img" alt="">
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+  <ion-row class="cat-outer-container" no-padding>
+    <ion-col col-12 no-padding>
+      <h4 class="mont-light cat-label">Categories</h4>
+      <ion-searchbar *ngIf="showSearch" [(ngModel)]="searchText" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+    </ion-col>
+    <ion-col *ngFor="let cat of categories" (click)="goToCatDetails(cat)" col-12 no-padding>
+      <div class="cat-container">
+        <img class="cat-img" [src]="cat.Images" alt="">
+        <div class="cat-title">
+          <h3>
+            {{cat.Name}}
+          </h3>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

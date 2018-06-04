@@ -1,0 +1,48 @@
+<ion-content padding>
+  <ion-row>
+    <ion-col (click)="goBack()" col-2 offset-10>
+      <img class="close" src="assets/imgs/login/close.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="headling-container">
+    <ion-col col-12 text-center>
+      <img src="assets/imgs/sign-up/hello.png">
+    </ion-col>
+  </ion-row>
+  <ion-row class="form-container">
+    <form [formGroup]="form">
+      <ion-label>
+        <ion-item>
+          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="re_password" type="password" placeholder="Repeat Password"></ion-input>
+        </ion-item>
+        <ion-list formControlName="type" radio-group>
+          <ion-item>
+            <ion-label>Vendor</ion-label>
+            <ion-radio checked="true" value="vendor"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>User</ion-label>
+            <ion-radio value="user"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-label>
+    </form>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <img (click)="signUp()" src="assets/imgs/sign-up/sign-up.png" alt="">
+    </ion-col>
+    <ion-col col-12 margin-top>
+      <img src="assets/imgs/sign-up/fb_signup.png" alt="">
+    </ion-col>
+    <ion-col col-12 margin-top text-center>
+      <img (click)="loginAsAGuest()" src="assets/imgs/sign-up/skip.png" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,64 @@
+page-statistics {
+  ion-content {
+    background-image: url('../assets/imgs/dashboard/bg.png');
+    background-size: cover;
+  }
+  .stat-box {
+    height: 30%;
+  }
+  .stat-box:first-child,
+  .stat-box:nth-child(2) {
+    margin-bottom: 5%;
+  }
+  .box {
+    background-color: rgb(240, 105, 135);
+    height: 100%;
+    border-radius: 25px;
+  }
+  .left-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    div {
+      color: #fff;
+      font-size: 1.6em;
+    }
+    img {
+      width: 60%;
+    }
+  }
+  .right-box {
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 8px;
+    p {
+      margin: 5px 0px;
+    }
+  }
+  [col-7] {
+    flex: 0 0 64%;
+    width: 100%;
+    max-width: 100%;
+  }
+  .col-50{
+    width: 50%;
+    font-size: 1.5rem;
+  }
+  .col-100{
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  .row-container{
+    display: flex;
+    width: 100%;
+  }
+  .row-container.block{
+    display: block;
+  }
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row no-padding>
+    <ion-col text-center col-12 no-padding class="create-package" (click)="goToCreatePackage()">
+      <!-- <img src="assets/imgs/packages/create.png" alt=""> -->
+      <h4 class="mont-light">New Package</h4>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding *ngFor="let package of packages; let index = index">
+    <ion-col class="img-container" col-12 no-padding>
+      <img [src]="package?.pack_image" class="package-image" alt="">
+      <span class="bottom-all"></span>
+      <span class="mont-light bottom-left package-name">{{package.pack_name}}</span>
+      <span class="mont-light bottom-right price">
+        <span class="price-amount">{{package.pack_price}}</span>
+        <span class="currency">&nbsp;EGP</span>
+      </span>
+    </ion-col>
+    <ion-col col-12 class="package-details" padding>
+      <p class="mont-light pacakge-bullet" *ngFor="let b of package?.bullets[0]">{{b}}</p>
+    </ion-col>
+    <ion-col (click)="goToEditPackage(package)" col-6 no-padding text-center class="pacakge-action mont-light">
+      Edit
+    </ion-col>
+    <ion-col (click)="deletePackage(index)" col-6 no-padding text-center class="pacakge-action mont-light">
+      Remove
+    </ion-col>
+  </ion-row>
+</ion-content>

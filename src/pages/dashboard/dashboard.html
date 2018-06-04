@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-6 class="margin-top" text-center>
+      <div class="box" (click)="goToOrders()">
+        <span>
+          <img src="assets/imgs/dashboard/icon.png" alt="">
+        </span>
+        <div class="mont-light">Orders</div>
+      </div>
+    </ion-col>
+    <ion-col col-6 class="margin-top" text-center>
+      <div class="box" (click)="goToPacakges()">
+        <img src="assets/imgs/dashboard/package-icon.png" alt="">
+        <div class="mont-light">Packages</div>
+      </div>
+    </ion-col>
+    <ion-col col-6 text-center>
+      <div class="box" (click)="goToStatistics()">
+        <span>
+          <img src="assets/imgs/dashboard/statistics.png" alt="">
+        </span>
+        <div class="mont-light">Statistics</div>
+      </div>
+    </ion-col>
+    <ion-col col-6 text-center>
+      <div class="box" (click)="goToProfile()">
+        <img src="assets/imgs/dashboard/avatar.png" alt="">
+        <div class="mont-light">Profile</div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row class="title-outer-container">
+    <ion-col class="title-container" col-12>
+      <h3 class="mont-light">{{vendor?.vendor_name}}</h3>
+      <p class="mont-light">{{vendor?.vendor_category_name}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngIf="!is_edit" col-12 text-center>
+      <img *ngIf="!imageUploaded" src="assets/imgs/add-package/add-img.png" (click)="getImage()" alt="">
+      <img *ngIf="imageUploaded" src="{{imageFileName}}" alt="Ionic File" class="pack-img" (click)="getImage()" width="300" />
+    </ion-col>
+    <ion-col *ngIf="is_edit" col-12 no-padding>
+      <img [src]="package.pack_image" class="pack-img" (click)="getImage()" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row margin-top>
+    <ion-col col-6>
+      <ion-item>
+        <ion-label class="label" stacked>Package Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="packageData.name" placeholder="standard"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-6>
+      <ion-item>
+        <ion-label class="label" stacked>Package Price</ion-label>
+        <ion-input type="text" name="price" [(ngModel)]="packageData.price" placeholder="100"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-12>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label class="label" stacked>Package Details</ion-label>
+          <ion-input type="text" name="desc" [(ngModel)]="packageData.desc" placeholder="-Point 1 -Point 2"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6 text-center>
+      <button ion-button color="dark" block oultine (click)="save()">Save</button>
+    </ion-col>
+    <ion-col col-6 text-center>
+      <button ion-button color="dark" block oultine (click)="cancel()">Cancel</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

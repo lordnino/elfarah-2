@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="requestForm">
+    <ion-row no-padding class="select-date-container">
+      <ion-col padding col-12>
+        <div class="label select-date">Select Date</div>
+        <ion-item>
+          <ion-label>From</ion-label>
+          <ion-datetime name="from" displayFormat="MMM DD, YYYY HH:mm" pickerFormat="MMM DD, YYYY HH:mm" formControlName="from"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>To</ion-label>
+          <ion-datetime name="to" displayFormat="MMM DD, YYYY HH:mm" pickerFormat="MMM DD, YYYY HH:mm" formControlName="to"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <span class="label">Selected Pacakge</span>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <span class="label">Package Price</span>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <span class="pack_name">{{package?.pack_name}}</span>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <span class="pack_price">{{package?.pack_price}}</span>
+        <span class="pack_currency">EGP</span>
+      </ion-col>
+      <ion-col margin-left col-12>
+        <span class="label">Package Details</span>
+      </ion-col>
+      <ion-col margin-left col-12>
+        <span class="pack_details">{{package?.pack_desc}}</span>
+      </ion-col>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label class="label" stacked>Notes</ion-label>
+          <ion-input formControlName="notes" type="text" placeholder="Notes"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row margin-top>
+      <ion-col (click)="send()" class="actions" col-6 text-center>
+        Send
+      </ion-col>
+      <ion-col (click)="cancel()" class="actions" col-6 text-center>
+        Cancel
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

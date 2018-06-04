@@ -1,0 +1,17 @@
+page-contact-us {
+  ion-content {
+    background-image: url('../assets/imgs/welcome.png');
+    background-size: cover;
+    .bottom {
+      color: #fff;
+      height: 20%;
+      margin-top: 120%;
+      p {
+        font-size: 2rem;
+      }
+      h5 {
+        font-size: 3rem;
+      }
+    }
+  }
+}

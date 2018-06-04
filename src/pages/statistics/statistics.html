@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="stat-box">
+    <ion-col class="box left-box" col-4>
+      <img src="assets/imgs/dashboard/icon.png" alt="">
+      <div class="mont-light">Orders</div>
+    </ion-col>
+    <ion-col class="box right-box" offset-1 col-7>
+      <div class="row-container">
+        <div class="col-50 mont-light">
+          {{statistics?.orders?.Total}}
+        </div>
+        <div class="col-50 mont-light">
+          {{statistics?.orders?.PendingVendorAction}}
+        </div>
+      </div>
+      <div class="row-container" margin-bottom>
+        <div class="col-50 mont-light">
+          Total Orders
+        </div>
+        <div class="col-50 mont-light">
+          Pending Vendors
+        </div>
+      </div>
+      <div class="row-container">
+        <div class="col-50 mont-light">
+          {{statistics?.orders?.WaitingUserAction}}
+        </div>
+        <div class="col-50 mont-light">
+          {{statistics?.orders?.DoneDeals}}
+        </div>
+      </div>
+      <div class="row-container">
+        <div class="col-50 mont-light">
+          Pending Users
+        </div>
+        <div class="col-50 mont-light">
+          Done Deals
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="stat-box">
+    <ion-col class="box left-box" col-4>
+      <img src="assets/imgs/dashboard/icon.png" alt="">
+      <div class="mont-light">Package</div>
+    </ion-col>
+    <ion-col class="box right-box" offset-1 col-7>
+      <div class="row-container">
+        <div class="col-50 mont-light">
+          {{statistics?.packages?.max?.pack_name}}
+        </div>
+        <div class="col-50 mont-light">
+          {{statistics?.packages?.min?.pack_name}}
+        </div>
+      </div>
+      <div class="row-container" margin-top>
+        <div class="col-50 mont-light">
+          Most Requested
+        </div>
+        <div class="col-50 mont-light">
+          Min Requested
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="stat-box">
+    <ion-col class="box left-box" col-4>
+      <img src="assets/imgs/dashboard/icon.png" alt="">
+      <div class="mont-light">Profile</div>
+    </ion-col>
+    <ion-col class="box right-box" offset-1 col-7>
+      <div class="row-container block" margin-bottom>
+        <div class="col-100 mont-light">
+          {{statistics?.profile?.follower}}
+        </div>
+        <div class="col-100 mont-light">
+          Followers
+        </div>
+      </div>
+      <div class="row-container block margin-top">
+        <div class="col-100 mont-light">
+          {{statistics?.profile?.satisfied_clients}}
+        </div>
+        <div class="col-100 mont-light">
+          Satesfied Clients
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

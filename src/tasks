@@ -1,0 +1,15 @@
+- submit review to a vendor ?
+- send api in pending order (vendors) **
+- upload profile pic api (user)
+- sliders ads api (user) *
+- user profile image when he is a guest is broken
+- slider in the main home page *
+- pop in the sign up and any other page convert it to setRoot **
+
+bugs api
+- bug in accept order
+- filter api
+- what the fuck is nudge and the remove icon with the nudge icon
+- validation in registeraion error should be identical
+
+- test user and vendor registeration

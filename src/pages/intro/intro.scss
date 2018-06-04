@@ -1,0 +1,15 @@
+page-intro {
+  ion-content {
+    background-image: url('../assets/imgs/welcome.png');
+    background-size: cover;
+  }
+  .logo-margin-top {
+    margin-top: 80%;
+  }
+  .bottom-container {
+    margin-top: 20%
+  }
+  .skip-this-text{
+    margin-top: 15%;
+  }
+}

@@ -1,0 +1,21 @@
+page-request-package {
+  .label,
+  .label-ios[stacked] {
+    color: #666;
+    font-size: 1.2em;
+  }
+  .actions {
+    font-size: 1.3em;
+  }
+  .pack_name {
+    font-size: 1.3em;
+  }
+  .pack_price {
+    font-size: 1.7em
+  }
+  .pack_currency {
+    font-size: 1.2em;
+    color: #d26e00;
+    display: inline-block;
+  }
+}

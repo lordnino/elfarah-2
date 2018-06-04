@@ -1,0 +1,114 @@
+page-orders {
+  ion-content {
+    background-image: url('../assets/imgs/dashboard/bg.png');
+    background-size: cover;
+  }
+  ion-segment {
+    // margin-top: 27px;
+  }
+  // .segment-ios-primary .segment-button {
+  //   border: none;
+  // }
+  // .segment-ios-primary .segment-button.segment-activated {
+  //   color: #f06886;
+  //   background-color: transparent;
+  //   border-bottom: 5px solid #f06886;
+  // }
+  // .segment-ios-primary .segment-button {
+  //   color: #fff;
+  //   font-family: "MontExtraBold"
+  // }
+  .deal-container{
+    background-image: url('../assets/imgs/orders/deal-bg.png');
+    background-size: 100% 100%;
+    min-height: 50px;
+  }
+  .deal-outer-container{
+    margin-top: 15px;
+  }
+  .left-side-deal{
+
+  }
+  .right-side-deal{
+
+  }
+  .client-name,
+  .client-type{
+    color: #fff;
+  }
+  .client-name{
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  .client-type{
+    margin-top: 5px;
+    margin-bottom: 15px
+  }
+  .client-status{
+    color: #fff;
+    font-size: .8em;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .left-side-deal{
+    color: #fff;
+    // padding: 10px 0px;
+  }
+  .package-title{
+    margin-top: 15px;
+    font-size: 1.2em;
+  }
+  .package-name{
+    font-size: 1.5em;
+  }
+  .view-desc{
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+  .price-title{
+    margin-top: 10px;
+    color: #fff;
+    font-size: 1.3em;
+  }
+  .price-amount{
+    font-size: 1.5em;
+  }
+  .currency{
+    color: #bf8313;
+  }
+  .details-inner-container{
+    margin-left: 20px;
+    div{
+      margin: 7px 0px;
+    }
+  }
+  .event-date-title{
+    font-size: 1.2em;
+  }
+  .event-date{
+    font-size: 1.3em;
+  }
+  .from-to{
+    font-size: .8em !important;
+  }
+  .user-note-title{
+    margin-top: 15px !important;
+  }
+  .package-action{
+    color: #fff;
+    font-size: 1.3em;
+    // margin-bottom: 50px;
+  }
+  .open{
+    margin-bottom: 7px;
+  }
+  .open-first{
+    margin-bottom: -13px;
+  }
+  .deal-container.second{
+    margin-top: -9px;
+  }
+  img.oval{
+    width: 10px;
+  }
+}

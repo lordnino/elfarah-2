@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row class="top-slider-container" no-padding>
+    <ion-col *ngIf="vendor_images" col-12 no-padding>
+      <ion-slides autoplay="5000" loop="true" speed="500" pager="true" paginationType="bullets">
+        <ion-slide *ngFor="let img of vendor_images">
+          <div class="ad-container">
+            <img [src]="img.web_path" class="ad-img" alt="">
+            <img (click)="goToAllPackages()" src="assets/imgs/categories-vendor/see-pacakges.png" class="top-left featured-text" alt="">
+            <span class="number-of-followers" [ngClass]="{'followed': vendorDetails?.vendor[0]?.user_follow == 1, 'un-followed': vendorDetails?.vendor[0]?.user_follow == 0}">{{vendorDetails?.vendor[0]?.vendor_followers}}</span>
+            <img (click)="unFollowVendor()" *ngIf="vendorDetails?.vendor[0]?.user_follow == 1" src="assets/imgs/categories-vendor/followed.png" class="top-right featured-img"
+              alt="">
+            <img (click)="followVendor()" *ngIf="vendorDetails?.vendor[0]?.user_follow == 0" src="assets/imgs/categories-vendor/follow-up.png" class="top-right featured-img"
+              alt="">
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding>
+    <ion-col col-12 no-padding class="vendor-name-container">
+      <h3 class="mont-light">{{vendorDetails?.vendor[0]?.vendor_name}}</h3>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding class="vendor-name-container">
+    <ion-col no-padding col-5>
+      <div class="rating-container">
+        <rating *ngIf="vendorDetails?.vendor[0]" [(ngModel)]="vendorDetails.vendor[0].vendor_rate" readOnly="true" emptyStarIconName="star-outline"
+          halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+        <span class="rating-price">{{vendorDetails?.vendor[0]?.vendor_rate}}</span>
+      </div>
+    </ion-col>
+    <ion-col no-padding col-7>
+      <div class="price-range-container mont-light">
+        <span class="price-range">Price Range</span>
+        <span class="price-range-amount">{{vendorDetails?.vendor[0]?.price_from}} - {{vendorDetails?.vendor[0]?.price_to}}</span>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding>
+    <ion-col class="about-us-container" col-12>
+      <h3 class="mont-light">About Us</h3>
+      <p class="mont-light">{{vendorDetails?.vendor[0]?.vendor_description}}</p>
+    </ion-col>
+    <ion-col class="reviews-container" col-12>
+      <h3 class="mont-light">Reviews</h3>
+      <div ion-text text-center class="reviews-rating-container">
+        <rating *ngIf="vendorDetails?.vendor[0]" [(ngModel)]="vendorDetails.vendor[0].vendor_rate" readOnly="false" emptyStarIconName="star-outline"
+          halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+      </div>
+    </ion-col>
+    <ion-col class="packages-container" col-12>
+      <h3 class="mont-light">Packages</h3>
+      <ion-row class="package-outer-container" no-padding *ngFor="let package of packages; let index = index">
+        <ion-col class="img-container" col-12 no-padding>
+          <img [src]="package?.pack_image" class="package-image" alt="">
+          <span class="bottom-all"></span>
+          <span class="mont-light bottom-left package-name">{{package.pack_name}}</span>
+          <span class="mont-light bottom-right price">
+            <span class="price-amount">{{package.pack_price}}</span>
+            <span class="currency">&nbsp;EGP</span>
+          </span>
+        </ion-col>
+        <ion-col col-12 class="package-details" padding>
+          <p class="mont-light pacakge-bullet">{{package.pack_desc}}</p>
+        </ion-col>
+        <ion-col (click)="requestPackage(package)" col-12 no-padding text-center class="pacakge-action mont-light">
+          Request
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row margin-top>
+    <ion-col (click)="goToAllPackages()" text-center offset-1 col-10 class="package-action">
+      SEE ALL PACKAGES
+    </ion-col>
+  </ion-row>
+</ion-content>

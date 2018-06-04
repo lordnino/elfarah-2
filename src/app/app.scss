@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,164 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@font-face {
+  font-family: "MontBlack";
+  src: url("../assets/mont-black.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontBold";
+  src: url("../assets/mont-bold.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontExtraBold";
+  src: url("../assets/mont-extra-bold.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontHairline";
+  src: url("../assets/mont-hairline.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontLight", sans-serif;
+  src: url("../assets/mont-light.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontRegular";
+  src: url("../assets/mont-regular.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontSemiBold";
+  src: url("../assets/mont-semi-bold.otf") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "MontUltraLight";
+  src: url("../assets/mont-ultra-light.otf") format("embedded-opentype");
+}
+
+.mont-ultra-light {
+  font-family: 'MontUltraLight'
+}
+
+.mont-semi-bold {
+  font-family: 'MontSemiBold'
+}
+
+.mont-regular {
+  font-family: 'MontRegular';
+}
+
+.mont-extra-bold {
+  font-family: "MontExtraBold"
+}
+
+.mont-hairline {
+  font-family: "MontHairline"
+}
+
+.mont-light {
+  // font-family: "MontLight", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mont-black {
+  font-family: "MontBlack"
+}
+
+.mont-bold {
+  font-family: "MontBold"
+}
+
+.list-ios>.item-block:last-child,
+.list-ios>.item-wrapper:last-child .item-block {
+  border-bottom: none;
+}
+
+.menu-list {
+  background-image: url('../assets/imgs/sidemenu/bg.png');
+  height: 100%;
+  margin-bottom: 0px;
+  .item-inner {
+    border-bottom: 0px !important;
+  }
+  .item-ios {
+    background: transparent;
+    background: transparent;
+  }
+  .user-profile {
+    border-radius: 50%;
+    border: 1px solid #fff;
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+  }
+  h4,
+  h6 {
+    color: #fff;
+  }
+  h4 {
+    margin: 5px 0px;
+    font-size: 2rem;
+  }
+  h6 {
+    margin: 5px 0px;
+  }
+  .menu-link {
+    color: #fff;
+    // padding-left: 55px;
+    text-align: center;
+    font-size: 2em; // margin-top: 14px;
+  }
+  .menu-bottom-logo {
+    margin-left: 26%;
+    margin-top: 14px;
+  }
+}
+
+* {
+  font-family: 'MontLight';
+}
+
+.toolbar-ios{
+  min-height: 53px;
+}
+
+.ion-label, .label-ios {
+  font-family: "MontLight", sans-serif !important;
+}
+
+.navbar-header-logo {
+  height: 25px;
+}
+
+.toolbar-background {
+  background-color: #2f2f2f;
+}
+
+ion-icon[name='menu'] {
+  color: #fff;
+}
+
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default,
+.bar-button-clear-ios-default {
+  color: #fff;
+}
+
+.segment-ios{
+  font-family: sans-serif;
+}
+
+.content-ios{
+  // background-color: #2f2f2f;
+}
+
+.segment-ios .segment-button{
+  padding-top: 10px;
+  font-family: sans-serif;
+}

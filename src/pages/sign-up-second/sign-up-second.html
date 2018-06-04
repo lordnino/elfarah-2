@@ -1,0 +1,60 @@
+<ion-content padding>
+  <ion-row>
+    <ion-col (click)="goBack()" col-2 offset-10>
+      <img class="close" src="assets/imgs/login/close.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="headling-container">
+    <ion-col col-12 text-center>
+      <img src="assets/imgs/sign-up-second/desc.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row class="form-container">
+    <form [formGroup]="form">
+      <ion-label>
+        <ion-item>
+          <ion-input formControlName="first" type="text" placeholder="First name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="last" type="text" placeholder="Last name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="phone" type="number" placeholder="Phone Number"></ion-input>
+        </ion-item>
+        <div *ngIf="type == 'vendor'">
+          <ion-item>
+            <ion-label>Country</ion-label>
+            <ion-select formControlName="country">
+              <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>City</ion-label>
+            <ion-select formControlName="city">
+              <ion-option *ngFor="let city of cities" [value]="city.id">{{city.Name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-select formControlName="category">
+              <ion-option *ngFor="let category of categories" [value]="category.id">{{category.Name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="about" type="about" placeholder="About"></ion-input>
+          </ion-item>
+        </div>
+      </ion-label>
+    </form>
+  </ion-row>
+  <ion-row margin-top>
+    <ion-col col-12>
+      <img (click)="signUp()" src="assets/imgs/sign-up-second/start.png" alt="">
+    </ion-col>
+  </ion-row>
+  <ion-row margin-top>
+    <ion-col col-12>
+      <img src="assets/imgs/sign-up-second/fb_signup.png" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>

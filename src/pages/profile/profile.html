@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="slider-top-container" *ngIf="type == 'vendor'">
+    <ion-slides *ngIf="vendorImages.length > 0" pager="true" paginationType="bullets">
+      <ion-slide *ngFor="let image of vendorImages; let index = index" (click)="handleImage(image)">
+        <img [src]="image.web_path" alt="">
+      </ion-slide>
+    </ion-slides>
+    <ion-slides *ngIf="vendorImages.length == 0" pager="true" paginationType="bullets">
+      <ion-slide>
+        <img src="assets/imgs/profile/photo-camera.png" (click)="getImage()" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="slider-top-container" *ngIf="type == 'user'">
+    <div class="user-profile-container">
+      <span (click)="uploadUserPic()">
+        <img class="user-img" [src]="userImage" alt="">
+        <img class="edit-icon" src="assets/imgs/profile/edit_pic.png" alt="">
+      </span>
+    </div>
+  </div>
+  <ion-row class="heading-name">
+    <ion-col col-12 text-center>
+      <div class="mont-regular name">{{userProfile?.name}}</div>
+      <div class="mont-regular address">{{userProfile?.city_name}} {{userProfile?.country_name}}</div>
+      <ion-segment [(ngModel)]="tabs" color="primary">
+        <ion-segment-button value="profile">
+          PROFILE
+        </ion-segment-button>
+        <ion-segment-button value="password">
+          CHANGE PASSWORD
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+  <div class="inputs-bottom">
+    <div [ngSwitch]="tabs" style="height:100%;">
+      <ion-row *ngSwitchCase="'profile'" class="inputs-container" padding>
+        <ion-item>
+          <ion-label color="primary" stacked>First Name</ion-label>
+          <ion-input type="text" name="first" [(ngModel)]="profile.first"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Last Name</ion-label>
+          <ion-input type="text" name="last" [(ngModel)]="profile.last"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="profile.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Phone</ion-label>
+          <ion-input type="text" name="phone" [(ngModel)]="profile.phone"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="type == 'vendor'">
+          <ion-label color="primary" stacked>About Vendor</ion-label>
+          <ion-textarea type="text" rows="4" name="desc" [(ngModel)]="profile.desc"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <button (click)="updateUserData()" color="light" class="update-btn" ion-button block outline>Update Profile</button>
+        </ion-item>
+      </ion-row>
+      <ion-row *ngSwitchCase="'password'" class="inputs-container" padding>
+        <ion-item>
+          <ion-label color="primary" stacked>Current Password</ion-label>
+          <ion-input type="password" name="password" placeholder="Current Password" [(ngModel)]="passwordData.current"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>New Password</ion-label>
+          <ion-input type="password" name="new" placeholder="New Password" [(ngModel)]="passwordData.new"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Repeat New Password</ion-label>
+          <ion-input type="password" name="re_new" placeholder="Repeat New Password" [(ngModel)]="passwordData.re_new"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button color="light" class="update-btn" ion-button block outline>Change Password</button>
+        </ion-item>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

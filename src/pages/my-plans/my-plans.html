@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/imgs/logo1.png" class="navbar-header-logo" alt="">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row no-padding>
+    <ion-col col-12 no-padding>
+      <ion-segment [(ngModel)]="tabs" color="primary">
+        <ion-segment-button value="following">
+          FOLLOWING
+        </ion-segment-button>
+        <ion-segment-button value="pending">
+          PENDING
+        </ion-segment-button>
+        <ion-segment-button value="done">
+          DONE DEALS
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+  <ion-row [ngSwitch]="tabs">
+    <ion-col col-12 *ngSwitchCase="'following'">
+      <ion-row no-padding *ngFor="let follower of followers">
+        <h3 class="follower-title mont-light">{{follower?.Category_Name}}</h3>
+        <ion-row no-padding>
+          <ion-col col-6 *ngFor="let vendor of follower.Vendors" (click)="goToVendorPage(vendor)">
+            <div class="follower-container">
+              <img class="vendor-img" [src]="vendor.Path" alt="">
+              <div class="vendor-title mont-light" ion-text text-center>{{vendor.Name}}</div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+    <ion-col col-12 *ngSwitchCase="'pending'">
+      <ion-row class="deal-outer-container" *ngFor="let p of pending; let index = index">
+        <ion-col col-12 class="deal-container" no-padding>
+          <ion-row>
+            <ion-col class="left-side-deal" text-center no-padding col-5>
+              <div class="client-name mont-light">{{p?.vendor_name}}</div>
+              <div class="client-type mont-light">{{p?.cat_name}}</div>
+            </ion-col>
+            <ion-col class="right-side-deal" col-7 no-padding text-center>
+              <div>
+                <img src="assets/imgs/orders/oval.png" class="oval" alt="">
+                <span class="client-status mont-light">{{p?.state_name}}</span>
+              </div>
+              <div ion-text text-center>
+                <div class="trash-container">
+                  <!-- <ion-icon (click)="deleteOrder(p)" name="ios-trash-outline"></ion-icon> -->
+                  <img class="trash-img" (click)="deleteOrder(p)" src="assets/imgs/trash.png" alt="">
+                  <div (click)="sendANudge(p.id)" class="mont-light nudge-container">
+                    <img class="nudge-icon" src="assets/imgs/nudge.png" alt="">
+                    Nudge
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-12 class="deal-container second" no-padding>
+          <ion-row>
+            <ion-col class="left-side-deal" text-center no-padding col-6>
+              <div class="package-title mont-light">Your Package</div>
+              <div class="package-name mont-black">{{p?.pack_name}}</div>
+              <div class="view-desc mont-light">View description</div>
+            </ion-col>
+            <ion-col class="right-side-deal" col-6 no-padding text-center>
+              <div>
+                <div class="price-title mont-light">Price</div>
+                <div class="price-amount client-status mont-light">{{p?.deal_price}}
+                  <span class="currency">EGP</span>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-12 text-center>
+              <img class="open-first" *ngIf="!p.open" (click)="open(index)" src="assets/imgs/orders/open.png" alt="">
+            </ion-col>
+            <ion-col no-padding col-12 *ngIf="p.open">
+              <ion-row class="package-details-container" no-padding>
+                <ion-col class="left-side-deal details-inner-container" col-12>
+                  <div class="event-date-title mont-light">Event Date</div>
+                  <div class="event-date">
+                    <span class="from-to">From &nbsp;&nbsp;</span>{{p?.date_from | date}}</div>
+                  <div class="event-date">
+                    <span class="from-to">To &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {{p?.date_to | date}}</div>
+                  <div class="mont-light user-note-title">Vendor Note</div>
+                  <div class="mont-light user-note">{{p?.last_vendor_note}}</div>
+                </ion-col>
+                <ion-col col-12>
+                  <ion-row *ngIf="p.state_name == 'Waiting For Your Action'" no-padding>
+                    <ion-col col-6 text-center class="mont-light package-action" (click)="acceptOrder(p)">Done Deal</ion-col>
+                    <ion-col col-6 text-center class="mont-light package-action" (click)="leaveNote(p)">Edit</ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="p.state_name == 'Waiting For Vendor Action'" no-padding>
+                    <ion-col col-12 text-center class="mont-light package-action" (click)="leaveNote(p)">Edit</ion-col>
+                  </ion-row>
+                </ion-col>
+                <ion-col col-12 text-center>
+                  <img class="open" (click)="open(index)" src="assets/imgs/orders/close.png" alt="">
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col col-12 *ngSwitchCase="'done'">
+      <ion-row class="deal-outer-container" *ngFor="let d of done_deals; let index = index">
+        <ion-col col-12 class="deal-container" no-padding>
+          <ion-row>
+            <ion-col class="left-side-deal" text-center no-padding col-5>
+              <div class="client-name mont-light">{{d?.vendor_name}}</div>
+              <div class="client-type mont-light">{{d?.cat_name}}</div>
+            </ion-col>
+            <ion-col class="right-side-deal" col-7 no-padding text-center>
+              <div>
+                <img src="assets/imgs/orders/oval.png" class="oval" alt="">
+                <span class="client-status mont-light">{{d?.state_name}}</span>
+              </div>
+              <div ion-text text-center>
+                <div class="trash-container">
+                  <!-- <ion-icon (click)="deleteOrder(d)" name="ios-trash-outline"></ion-icon> -->
+                  <img class="trash-img" (click)="deleteOrder(p)" src="assets/imgs/trash.png" alt="">
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-12 class="deal-container second" no-padding>
+          <ion-row>
+            <ion-col class="left-side-deal" text-center no-padding col-6>
+              <div class="package-title mont-light">Your Package</div>
+              <div class="package-name mont-black">{{d?.pack_name}}</div>
+              <div class="view-desc mont-light">View description</div>
+            </ion-col>
+            <ion-col class="right-side-deal" col-6 no-padding text-center>
+              <div>
+                <div class="price-title mont-light">Price</div>
+                <div class="price-amount client-status mont-light">{{d?.deal_price}}
+                  <span class="currency">EGP</span>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-12 text-center>
+              <img class="open-first" *ngIf="!d.open" (click)="openDoneDeal(index)" src="assets/imgs/orders/open.png" alt="">
+            </ion-col>
+            <ion-col no-padding col-12 *ngIf="d.open">
+              <ion-row class="package-details-container" no-padding>
+                <ion-col class="left-side-deal details-inner-container" col-12>
+                  <div class="event-date-title mont-light">Event Date</div>
+                  <div class="event-date">
+                    <span class="from-to">From &nbsp;&nbsp;</span>{{d?.date_from | date}}</div>
+                  <div class="event-date">
+                    <span class="from-to">To &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {{d?.date_to | date}}</div>
+                  <div class="mont-light user-note-title">Vendor Note</div>
+                  <div class="mont-light user-note">{{d?.last_vendor_note}}</div>
+                </ion-col>
+                <ion-col col-12>
+                  <ion-row no-padding>
+                    <ion-col col-6 text-center class="mont-light package-action" (click)="call(d?.vendor_phone)">Call</ion-col>
+                    <ion-col col-6 text-center class="mont-light package-action" (click)="sendSms(d?.vendor_phone)">Message</ion-col>
+                  </ion-row>
+                </ion-col>
+                <ion-col col-12 text-center>
+                  <img class="open" (click)="openDoneDeal(index)" src="assets/imgs/orders/close.png" alt="">
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row margin-top>
+        <ion-col col-8 offset-2>
+          <button btn ion-button full color="primary" class="mont-light" (click)="budgetCalc()">BUDGET CALCULATOR</button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
