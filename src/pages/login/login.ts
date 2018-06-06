@@ -105,6 +105,7 @@ export class LoginPage {
     window.localStorage.setItem('userProfile', JSON.stringify(guest));
     window.localStorage.setItem('type', 'guest');
     this.events.publish('user:login', 'guest');
+    this.events.publish('guest:login', 'guest');
     this.menuController.enable(true);
     this.navCtrl.setRoot('CategoriesPage');
   }

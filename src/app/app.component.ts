@@ -21,6 +21,10 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private menuController: MenuController, private events: Events) {
     this.initializeApp();
+    this.events.subscribe('guest:login', (type) => {
+      console.log('logined as a guest');
+      this.userType = 'guest';
+    })
   }
 
   initializeApp() {
@@ -101,8 +105,13 @@ export class MyApp {
 
   ngOnInit() {
     this.events.subscribe('user:login', (type) => {
+      this.events.subscribe('guest:login', (type) => {
+        console.log('logined as a guest');
+        this.userType = 'guest';
+      })
       console.log('fireeeeeeeeeeeeeeed');
       console.log(type);
+      this.userType = type;
       if (type == 'vendor') {
         this.pages = [
           { title: 'Dashboard', component: 'DashboardPage' },
