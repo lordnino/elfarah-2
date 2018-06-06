@@ -5,8 +5,7 @@ page-orders {
   }
   ion-segment {
     // margin-top: 27px;
-  }
-  // .segment-ios-primary .segment-button {
+  } // .segment-ios-primary .segment-button {
   //   border: none;
   // }
   // .segment-ios-primary .segment-button.segment-activated {
@@ -18,97 +17,109 @@ page-orders {
   //   color: #fff;
   //   font-family: "MontExtraBold"
   // }
-  .deal-container{
+  .deal-container {
     background-image: url('../assets/imgs/orders/deal-bg.png');
     background-size: 100% 100%;
     min-height: 50px;
   }
-  .deal-outer-container{
+  .deal-outer-container {
     margin-top: 15px;
   }
-  .left-side-deal{
-
-  }
-  .right-side-deal{
-
-  }
+  .left-side-deal {}
+  .right-side-deal {}
   .client-name,
-  .client-type{
+  .client-type {
     color: #fff;
   }
-  .client-name{
+  .client-name {
     font-size: 1em;
     margin-top: 10px;
   }
-  .client-type{
+  .client-type {
     margin-top: 5px;
     margin-bottom: 15px
   }
-  .client-status{
+  .client-status {
     color: #fff;
     font-size: .8em;
     display: inline-block;
     margin-top: 7px;
   }
-  .left-side-deal{
-    color: #fff;
-    // padding: 10px 0px;
+  .left-side-deal {
+    color: #fff; // padding: 10px 0px;
   }
-  .package-title{
+  .package-title {
     margin-top: 15px;
     font-size: 1.2em;
   }
-  .package-name{
+  .package-name {
     font-size: 1.5em;
   }
-  .view-desc{
+  .view-desc {
     margin-bottom: 15px;
     font-size: 1.2em;
   }
-  .price-title{
+  .price-title {
     margin-top: 10px;
     color: #fff;
     font-size: 1.3em;
   }
-  .price-amount{
+  .price-amount {
     font-size: 1.5em;
   }
-  .currency{
+  .currency {
     color: #bf8313;
   }
-  .details-inner-container{
+  .details-inner-container {
     margin-left: 20px;
-    div{
+    div {
       margin: 7px 0px;
     }
   }
-  .event-date-title{
+  .event-date-title {
     font-size: 1.2em;
   }
-  .event-date{
+  .event-date {
     font-size: 1.3em;
   }
-  .from-to{
+  .from-to {
     font-size: .8em !important;
   }
-  .user-note-title{
+  .user-note-title {
     margin-top: 15px !important;
   }
-  .package-action{
+  .package-action {
     color: #fff;
-    font-size: 1.3em;
-    // margin-bottom: 50px;
+    font-size: 1.3em; // margin-bottom: 50px;
   }
-  .open{
+  .open {
     margin-bottom: 7px;
   }
-  .open-first{
+  .open-first {
     margin-bottom: -13px;
   }
-  .deal-container.second{
+  .deal-container.second {
     margin-top: -9px;
   }
-  img.oval{
+  img.oval {
     width: 10px;
+  }
+  ion-segment {
+    width: 95%;
+    margin: auto;
+    position: fixed;
+    top: 8%;
+    left: 2%;
+  }
+  .segment-ios .segment-button {
+    padding-top: 10px;
+    font-family: sans-serif;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  .deal-outer-container {
+    // margin-top: 14%;
+    position: fixed;
+    top: 17%;
   }
 }

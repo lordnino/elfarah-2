@@ -36,9 +36,10 @@ export class RequestPackagePage {
   }
 
   createForm() {
+    console.log(new Date());
     this.requestForm = this.fb.group({
-      from: ['', Validators.required],
-      to: ['', Validators.required],
+      from: [new Date().toISOString(), Validators.required],
+      to: [new Date().toISOString(), Validators.required],
       notes: ['']
     })
   }

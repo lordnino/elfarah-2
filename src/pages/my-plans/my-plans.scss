@@ -6,8 +6,7 @@ page-my-plans {
   ion-segment {
     // margin-top: 27px;
     background-color: #272727;
-  }
-  // .segment-ios-primary .segment-button {
+  } // .segment-ios-primary .segment-button {
   //   border: none;
   // }
   // .segment-ios-primary .segment-button.segment-activated {
@@ -38,7 +37,9 @@ page-my-plans {
     font-size: 1.5em;
   }
   .deal-outer-container {
-    margin-top: 15px;
+    // margin-top: 14%;
+    position: fixed;
+    top: 17%;
   }
   .left-side-deal {}
   .right-side-deal {}
@@ -139,12 +140,37 @@ page-my-plans {
       font-size: 1.4em;
     }
   }
-
-  .trash-img{
+  .trash-img {
     margin-top: 12px;
   }
-
-  .nudge-icon{
-
+  .nudge-icon {}
+  ion-segment {
+    width: 95%;
+    margin: auto;
+    position: fixed;
+    top: 8%;
+    left: 2%;
+  }
+  .segment-ios .segment-button {
+    padding-top: 10px;
+    font-family: sans-serif;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  .budget-calc-container{
+    // position: fixed;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    button{
+      // margin-bottom: 0px;
+    }
+  }
+  .following-container{
+    margin-top: 11%;
+  }
+  span.button-inner{
+    font-family: "MontLight", sans-serif !important;
   }
 }

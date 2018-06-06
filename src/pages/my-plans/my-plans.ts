@@ -1,3 +1,4 @@
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { UserProvider } from './../../providers/user/user';
 import { IonicLibraryService } from './../../providers/ionic-lib.service';
 import { Component } from '@angular/core';
@@ -25,7 +26,7 @@ export class MyPlansPage {
   done_deals: any = [];
   pending: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private helperLib: IonicLibraryService, private userService: UserProvider, private alertCtrl: AlertController, private callNumber: CallNumber, private sms: SMS, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private helperLib: IonicLibraryService, private userService: UserProvider, private alertCtrl: AlertController, private callNumber: CallNumber, private sms: SMS, private loadingCtrl: LoadingController, private modalCtrl: ModalController) {
   }
 
   ionViewWillEnter() {
@@ -272,5 +273,14 @@ export class MyPlansPage {
       ]
     });
     alert.present();
+  }
+
+  goToViewDesc(data) {
+    console.log(data);
+    let modal = this.modalCtrl.create('ViewDescPage', {
+      data: data
+    });
+    modal.present();
+    // modal.createAndPresentOverlay('ViewDesc');
   }
 }

@@ -45,7 +45,7 @@
             <ion-col class="left-side-deal" text-center no-padding col-6>
               <div class="package-title mont-light">Your Package</div>
               <div class="package-name mont-black">{{pending?.pack_name}}</div>
-              <div class="view-desc mont-light">View description</div>
+              <div (click)="goToViewDesc(pending)" class="view-desc mont-light">View description</div>
             </ion-col>
             <ion-col class="right-side-deal" col-6 no-padding text-center>
               <div>
@@ -94,7 +94,7 @@
             </ion-col>
             <ion-col class="right-side-deal" col-7 no-padding text-center>
               <div>
-                <img src="assets/imgs/orders/oval.png" class="oval" alt="">
+                <img src="assets/imgs/pending.png" class="oval" alt="">
                 <span class="client-status mont-light">{{done?.state_name}}</span>
               </div>
             </ion-col>
@@ -105,7 +105,7 @@
             <ion-col class="left-side-deal" text-center no-padding col-6>
               <div class="package-title mont-light">Your Package</div>
               <div class="package-name mont-black">{{done?.pack_name}}</div>
-              <div class="view-desc mont-light">View done</div>
+              <div (click)="goToViewDone(done)" class="view-desc mont-light">View done</div>
             </ion-col>
             <ion-col class="right-side-deal" col-6 no-padding text-center>
               <div>

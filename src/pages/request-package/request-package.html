@@ -8,6 +8,12 @@
 
 
 <ion-content>
+  <ion-row class="title-outer-container">
+    <ion-col class="title-container" col-12>
+      <h3 class="mont-light">{{vendor_details.vendor[0]?.vendor_name}}</h3>
+      <p class="mont-light">{{package?.pack_name}}</p>
+    </ion-col>
+  </ion-row>
   <form [formGroup]="requestForm">
     <ion-row no-padding class="select-date-container">
       <ion-col padding col-12>

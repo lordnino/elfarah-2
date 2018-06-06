@@ -1,0 +1,24 @@
+<ion-content>
+    <div class="inner-dev">
+      <ion-row class="deal-outer-container">
+        <ion-col class="deal-container" col-12 no-padding>
+          <ion-row class="inner-deal">
+            <ion-col class="left-side-deal" text-center no-padding col-5>
+              <div class="client-name mont-light">{{desc?.vendor_name}}</div>
+              <div class="client-type mont-light">{{desc?.cat_name}}</div>
+            </ion-col>
+            <ion-col class="right-side-deal" col-7 no-padding text-center>
+              <div>
+                <img src="assets/imgs/pending.png" class="oval-view" alt="">
+                <span class="client-status mont-light">{{desc?.state_name}}</span>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <!-- <ion-col>
+          <p class="mont-light pack-desc">{{desc?.description}}</p>
+        </ion-col> -->
+      </ion-row>
+    </div>
+    <button (click)="close()" class="close-btn" btn ion-button full color="primary">ok</button>
+  </ion-content>

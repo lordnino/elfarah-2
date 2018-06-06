@@ -1,0 +1,78 @@
+page-order-view-done {
+  ion-content {
+    width: 87%;
+    height: auto;
+    min-height: 25%;
+    margin-top: 73%;
+    margin-left: 6%;
+    margin-right: auto;
+    background-image: url('../assets/imgs/orders/deal-bg.png');
+    background-size: cover;
+  }
+  .inner-dev {
+    height: 100%;
+    width: 89%;
+    margin-left: 5%
+  }
+  .content-ios {
+    background-color: transparent;
+  }
+  .close-btn {
+    position: absolute;
+    bottom: 0px;
+    margin-left: 9px;
+  }
+  span.button-inner {
+    font-size: 1.4em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+  }
+  .deal-outer-container {
+    // margin-top: 14%;
+  }
+  .inner-deal {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .left-side-deal {}
+  .right-side-deal {}
+  .client-name,
+  .client-type {
+    color: #fff;
+  }
+  .client-name {
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  .client-type {
+    margin-top: 5px;
+    margin-bottom: 15px
+  }
+  .client-status {
+    color: #fff;
+    font-size: .9em;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .left-side-deal {
+    color: #fff; // padding: 10px 0px;
+  }
+  .package-title {
+    margin-top: 15px;
+    font-size: 1.2em;
+  }
+  .package-name {
+    font-size: 1.5em;
+  }
+  .oval-view {
+    // margin-bottom: -5px;
+    width: 10px;
+  }
+  .pack-desc {
+    color: #fff;
+    margin-top: 0px;
+    font-size: 1.4rem;
+    margin-left: 20px;
+  }
+}

@@ -1,7 +1,7 @@
 page-request-package {
   .label,
   .label-ios[stacked] {
-    color: #666;
+    color: #797979;
     font-size: 1.2em;
   }
   .actions {
@@ -17,5 +17,22 @@ page-request-package {
     font-size: 1.2em;
     color: #d26e00;
     display: inline-block;
+  }
+  .title-container {
+    background-color: #edf8ff; // margin-right: 10px;
+    // margin-left: 10px;
+    // margin-right: 10px;
+    h3 {
+      margin-top: 7px;
+      margin-bottom: 5px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 5px;
+      margin-top: 0px;
+      color: #666;
+      margin-left: 5px;
+    }
   }
 }

@@ -26,7 +26,7 @@
     </ion-col>
   </ion-row>
   <ion-row [ngSwitch]="tabs">
-    <ion-col col-12 *ngSwitchCase="'following'">
+    <ion-col class="following-container" col-12 *ngSwitchCase="'following'">
       <ion-row no-padding *ngFor="let follower of followers">
         <h3 class="follower-title mont-light">{{follower?.Category_Name}}</h3>
         <ion-row no-padding>
@@ -49,7 +49,7 @@
             </ion-col>
             <ion-col class="right-side-deal" col-7 no-padding text-center>
               <div>
-                <img src="assets/imgs/orders/oval.png" class="oval" alt="">
+                <img src="assets/imgs/pending.png" class="oval" alt="">
                 <span class="client-status mont-light">{{p?.state_name}}</span>
               </div>
               <div ion-text text-center>
@@ -57,8 +57,7 @@
                   <!-- <ion-icon (click)="deleteOrder(p)" name="ios-trash-outline"></ion-icon> -->
                   <img class="trash-img" (click)="deleteOrder(p)" src="assets/imgs/trash.png" alt="">
                   <div (click)="sendANudge(p.id)" class="mont-light nudge-container">
-                    <img class="nudge-icon" src="assets/imgs/nudge.png" alt="">
-                    Nudge
+                    <img class="nudge-icon" src="assets/imgs/nudge.png" alt=""> Nudge
                   </div>
                 </div>
               </div>
@@ -70,7 +69,7 @@
             <ion-col class="left-side-deal" text-center no-padding col-6>
               <div class="package-title mont-light">Your Package</div>
               <div class="package-name mont-black">{{p?.pack_name}}</div>
-              <div class="view-desc mont-light">View description</div>
+              <div (click)="goToViewDesc(p)" class="view-desc mont-light">View description</div>
             </ion-col>
             <ion-col class="right-side-deal" col-6 no-padding text-center>
               <div>
@@ -122,13 +121,13 @@
             </ion-col>
             <ion-col class="right-side-deal" col-7 no-padding text-center>
               <div>
-                <img src="assets/imgs/orders/oval.png" class="oval" alt="">
+                <img src="assets/imgs/pending.png" class="oval" alt="">
                 <span class="client-status mont-light">{{d?.state_name}}</span>
               </div>
               <div ion-text text-center>
                 <div class="trash-container">
                   <!-- <ion-icon (click)="deleteOrder(d)" name="ios-trash-outline"></ion-icon> -->
-                  <img class="trash-img" (click)="deleteOrder(p)" src="assets/imgs/trash.png" alt="">
+                  <img class="trash-img" (click)="deleteOrder(d)" src="assets/imgs/trash.png" alt="">
                 </div>
               </div>
             </ion-col>
@@ -139,7 +138,7 @@
             <ion-col class="left-side-deal" text-center no-padding col-6>
               <div class="package-title mont-light">Your Package</div>
               <div class="package-name mont-black">{{d?.pack_name}}</div>
-              <div class="view-desc mont-light">View description</div>
+              <div (click)="goToViewDesc(d)" class="view-desc mont-light">View description</div>
             </ion-col>
             <ion-col class="right-side-deal" col-6 no-padding text-center>
               <div>
@@ -177,11 +176,11 @@
           </ion-row>
         </ion-col>
       </ion-row>
-      <ion-row margin-top>
-        <ion-col col-8 offset-2>
-          <button btn ion-button full color="primary" class="mont-light" (click)="budgetCalc()">BUDGET CALCULATOR</button>
-        </ion-col>
-      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row class="budget-calc-container" *ngIf="tabs == 'done'">
+    <ion-col no-padding col-8 offset-2>
+      <button btn ion-button full color="primary" class="mont-light" (click)="budgetCalc()">BUDGET CALCULATOR</button>
     </ion-col>
   </ion-row>
 </ion-content>

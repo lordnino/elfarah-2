@@ -4,8 +4,7 @@ page-profile {
       height: 25%;
     }
     .heading-name {
-      background-image: url('../assets/imgs/profile/sub-bg.png');
-      height: 20%;
+      background-image: url('../assets/imgs/profile/sub-bg.png'); // height: 20%;
       .col {
         padding: 0px;
       }
@@ -23,9 +22,8 @@ page-profile {
       font-size: 1.4em;
     }
     ion-segment {
-      margin-top: 27px;
-    }
-    // .segment-ios-primary .segment-button {
+      margin-top: 5px;
+    } // .segment-ios-primary .segment-button {
     //   border: none;
     // }
     // .segment-ios-primary .segment-button.segment-activated {
@@ -110,9 +108,18 @@ page-profile {
       }
     }
   }
-  .swiper-slide img{
+  .swiper-slide img {
     object-fit: cover;
     height: 300px;
     width: 100%;
+  }
+  ion-segment{
+    margin-top: 6%!important;
+  }
+  .segment-ios .segment-button {
+    padding-top: 10px;
+    font-family: sans-serif;
+    padding-bottom: 10px;
+    height: 47px;
   }
 }

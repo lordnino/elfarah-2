@@ -1,3 +1,4 @@
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { IonicLibraryService } from './../../providers/ionic-lib.service';
 import { VendorsProvider } from './../../providers/vendors/vendors';
 import { Component } from '@angular/core';
@@ -17,7 +18,7 @@ export class OrdersPage {
   doneDeals: any = [];
   pendingDeals: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private vendorsProviders: VendorsProvider, private helperLib: IonicLibraryService, private callNumber: CallNumber, private sms: SMS, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private vendorsProviders: VendorsProvider, private helperLib: IonicLibraryService, private callNumber: CallNumber, private sms: SMS, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private modalCtrl: ModalController) {
   }
 
   ionViewWillEnter() {
@@ -189,6 +190,23 @@ export class OrdersPage {
       }
     }, err => console.log(err)
     , () => loading.dismiss());
+  }
+
+  goToViewDesc(data){
+    console.log('test');
+    console.log(data);
+    let modal = this.modalCtrl.create('OrderViewDescPage', {
+      data: data
+    });
+    modal.present();
+  }
+
+  goToViewDone(data){
+    console.log(data);
+    let modal = this.modalCtrl.create('OrderViewDonePage', {
+      data: data
+    });
+    modal.present();
   }
 
 
