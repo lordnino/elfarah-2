@@ -35,14 +35,16 @@
     <ion-col col-12 text-center>
       <div class="mont-regular name">{{userProfile?.name}}</div>
       <div class="mont-regular address">{{userProfile?.city_name}} {{userProfile?.country_name}}</div>
-      <ion-segment [(ngModel)]="tabs" color="primary">
-        <ion-segment-button value="profile">
-          PROFILE
-        </ion-segment-button>
-        <ion-segment-button value="password">
-          CHANGE PASSWORD
-        </ion-segment-button>
-      </ion-segment>
+      <div class="segment-container">
+        <ion-segment [(ngModel)]="tabs" color="primary">
+          <ion-segment-button value="profile">
+            PROFILE
+          </ion-segment-button>
+          <ion-segment-button value="password">
+            CHANGE PASSWORD
+          </ion-segment-button>
+        </ion-segment>
+      </div>
     </ion-col>
   </ion-row>
   <div class="inputs-bottom">
