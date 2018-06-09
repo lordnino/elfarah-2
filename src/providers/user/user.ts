@@ -98,4 +98,8 @@ export class UserProvider {
       headers: this.headers
     })
   }
+
+  rateUser(data){
+    return this.http.post('http://elfarahapp-com.stackstaging.com/Application/rest/get.php', JSON.stringify(data), {headers: this.headers});
+  }
 }

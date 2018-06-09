@@ -37,23 +37,35 @@ page-filter {
       // padding: 5px 10px !important;
       // padding: 0px !important;
       // background: none;
-      color: #ef587b;
-      // ion-icon {
-        // font-size: 1.2em;
+      color: #ef587b; // ion-icon {
+      // font-size: 1.2em;
       // }
     }
   }
-  ion-label{
+  ion-label {
     color: #fff;
   }
-  .item-ios.item-block .item-inner{
+  .item-ios.item-block .item-inner {
     border-bottom: none;
   }
-  .rating-title{
+  .rating-title {
     font-size: 2rem;
   }
-  .label-ios, .datetime-text{
+  .label-ios,
+  .datetime-text {
     display: block;
     width: 100%;
+  }
+  .select-container {
+    ion-select{
+      max-width: 100%;
+      width: 100%;
+    }
+    ion-label{
+      display: none;
+    }
+    .select-text{
+      font-family: "MontLight", sans-serif;
+    }
   }
 }

@@ -31,6 +31,11 @@ export class CategoriesDetailsPage {
     this.getCatDetails();
   }
 
+  ionViewWillEnter() {
+    console.log('entered the view');
+    this.getCatDetails();
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriesDetailsPage');
   }

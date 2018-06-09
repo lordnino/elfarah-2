@@ -57,7 +57,7 @@
       <h3 class="mont-light">Reviews</h3>
       <div ion-text text-center class="reviews-rating-container">
         <rating *ngIf="vendorDetails?.vendor[0]" [(ngModel)]="vendorDetails.vendor[0].vendor_rate" readOnly="false" emptyStarIconName="star-outline"
-          halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+          halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="onModelChange($event)"></rating>
       </div>
     </ion-col>
     <ion-col class="packages-container" col-12>

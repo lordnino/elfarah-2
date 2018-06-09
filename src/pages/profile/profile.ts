@@ -47,14 +47,16 @@ export class ProfilePage {
     private userProvider: UserProvider,
     private base64: Base64) {
     if (this.type == 'user') {
-      if (this.userImage != null) {
-        this.userImage = `http://elfarahapp.com${this.userProfile.profile_image}`;
-      } else {
+      this.userImage = this.userProfile.profile_image;
+      console.log(this.userImage);
+      if (this.userImage == null) {
         this.userImage = 'https://www.worldcrunch.com/assets/img/avatars/thumbnails/default-user-img-profile.jpg';
+      } else {
+        this.userImage = `http://elfarahapp.com${this.userProfile.profile_image}`;
       }
       this.profile = {
         first: this.userProfile.name.split(' ')[0],
-        last: this.userProfile.name.split(' ')[1],
+        last: this.userProfile.name.split(' ').slice(1).join(' '),
         phone: this.userProfile.user_phone,
         email: this.userProfile.email
       }

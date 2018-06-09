@@ -56,8 +56,9 @@ export class FilterPage {
         id: res.data[0].ID
       }];
       this.cities = res.data[0].cities;
+      console.log(this.cities);
       this.form.get('country').patchValue(this.countries[0].id);
-      this.form.get('city').patchValue(this.cities[0].id);
+      this.form.get('city').patchValue(this.cities[0].ID);
       // console.log(this.form.value);
     }, err => console.log(err)
     , () => loading.dismiss());

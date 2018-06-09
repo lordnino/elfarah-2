@@ -107,9 +107,9 @@ page-orders {
   ion-segment {
     width: 95%;
     margin: auto;
-    position: fixed;
-    top: 8%;
-    left: 2%;
+    // position: fixed;
+    // top: 8%;
+    // left: 2%;/
   }
   .segment-ios .segment-button {
     padding-top: 10px;
@@ -119,7 +119,9 @@ page-orders {
   }
   .deal-outer-container {
     // margin-top: 14%;
-    position: fixed;
-    top: 17%;
+  }
+  .deal-wrapper{
+    // position: fixed;
+    // top: 17%;
   }
 }

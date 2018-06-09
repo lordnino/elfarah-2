@@ -1,3 +1,4 @@
+import { IonicLibraryService } from './../../providers/ionic-lib.service';
 import { UserProvider } from './../../providers/user/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -25,7 +26,7 @@ export class CategoryVendorPage {
   packages: any;
   type: any = window.localStorage.getItem('type');
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider, private loadingCtrl: LoadingController, private helperLib: IonicLibraryService) {
   }
 
   ngOnInit() {
@@ -145,5 +146,19 @@ export class CategoryVendorPage {
       window.localStorage.setItem('pacakge', JSON.stringify(selected_package));
       this.navCtrl.push('RequestPackagePage');
     }
+  }
+
+  onModelChange(ev){
+    console.log(ev);
+    let rate = this.vendorDetails.vendor[0].vendor_rate;
+    let payload = {
+      "custom":"true",
+      "action":"Add_Vendor_Review",
+      "token": window.localStorage.getItem('token'),
+      "data":{"vendor_id": this.cat_details_id,"rate": rate}
+    }
+    this.userProvider.rateUser(payload).subscribe((res: any) => {
+      this.helperLib.basictoast('Added rating successfully.', 2000, 'bottom');
+    }, err => console.log(err));
   }
 }
