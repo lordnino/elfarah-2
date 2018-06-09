@@ -59,18 +59,18 @@
     <ion-col class="box right-box" offset-1 col-7>
       <div class="row-container">
         <div class="col-50 mont-light">
-          {{statistics?.packages?.max?.pack_name}}
+          Most Requested
         </div>
         <div class="col-50 mont-light">
-          {{statistics?.packages?.min?.pack_name}}
+          {{statistics?.packages?.max?.pack_name}}
         </div>
       </div>
       <div class="row-container" margin-top>
         <div class="col-50 mont-light">
-          Most Requested
+          Min Requested
         </div>
         <div class="col-50 mont-light">
-          Min Requested
+          {{statistics?.packages?.min?.pack_name}}
         </div>
       </div>
     </ion-col>

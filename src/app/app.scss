@@ -174,3 +174,9 @@ ion-icon[name='menu'] {
   padding-top: 10px;
   font-family: sans-serif;
 }
+
+ion-menu {
+  .content-ios {
+    background-image: url('../assets/imgs/sidemenu/bg.png');
+  }
+}

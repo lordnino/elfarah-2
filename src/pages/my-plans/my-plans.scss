@@ -21,6 +21,7 @@ page-my-plans {
   .follower-title {
     color: #fff;
     padding-left: 10px;
+    margin-bottom: 0px;
   }
   .follower-container {
     position: relative;
@@ -178,9 +179,12 @@ page-my-plans {
     }
   }
   .following-container{
-    margin-top: 11%;
+    // margin-top: 11%;
   }
   span.button-inner{
     font-family: "MontLight", sans-serif !important;
+  }
+  .swiper-slide{
+    margin-right: 10px;
   }
 }
